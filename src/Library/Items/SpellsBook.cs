@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace RoleplayGame
 {
-    public class SpellsBook : MagicalItem // no uso el set en el attack y defense value? 
+    public class SpellsBook : MagicalItem
     {
         private int attackValue = 0;
         private int defenseValue = 0;

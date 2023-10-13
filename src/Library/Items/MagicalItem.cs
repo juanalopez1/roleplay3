@@ -1,9 +1,9 @@
-namespace RoleplayGame
+namespace RoleplayGame;
+public class MagicalItem : Item
 {
-    public abstract class MagicalItem
+    public int Power { get; set; }
+    public MagicalItem(int AttackValue, int DefenseValue, int power) : base(AttackValue, DefenseValue)
     {
-        int DefenseValue { get; }
-        int AttackValue { get; }
-
+        this.Power = power;
     }
 }

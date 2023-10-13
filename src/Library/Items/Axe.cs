@@ -1,11 +1,7 @@
 namespace RoleplayGame
 {
-    public class Axe : NonMagicalItem
+    public class Axe : Item
     {
-        public Axe(int defenseValue, int attackValue) : base(defenseValue, attackValue)
-        {
-            this.DefenseValue = defenseValue;
-            this.DefenseValue = attackValue;
-        }
+        public Axe(int defenseValue, int attackValue) : base(defenseValue, attackValue) { }
     }
 }

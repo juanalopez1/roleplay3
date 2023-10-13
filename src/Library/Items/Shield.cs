@@ -1,7 +1,7 @@
 namespace RoleplayGame
 {
-    public class Shield : NonMagicalItem
+    public class Shield : Item
     {
-        public Shield(int defenseValue, int attackValue) : base(14, 0) { }
+        public Shield(int defenseValue, int attackValue) : base(defenseValue, attackValue) { }
     }
 }

@@ -6,7 +6,7 @@ public class Hero : ICharacter
 {
     public string Name { get; set; }
     private int health = 100;
-    private List<NonMagicalItem> items = new List<NonMagicalItem>();
+    private List<Item> items = new List<Item>();
 
     public Hero(string name)
     {
@@ -18,7 +18,7 @@ public class Hero : ICharacter
         {
             return this.health;
         }
-        private set
+        set
         {
             this.health = value < 0 ? 0 : value;
         }
@@ -28,7 +28,7 @@ public class Hero : ICharacter
         get
         {
             int value = 0;
-            foreach (NonMagicalItem item in this.items)
+            foreach (Item item in this.items)
             {
                 if (item.AttackValue.HasValue)
                 {
@@ -43,7 +43,7 @@ public class Hero : ICharacter
         get
         {
             int value = 0;
-            foreach (NonMagicalItem item in this.items)
+            foreach (Item item in this.items)
             {
                 if (item.DefenseValue.HasValue)
                 {
@@ -60,12 +60,12 @@ public class Hero : ICharacter
         this.Health = 100;
     }
 
-    public void AddItem(NonMagicalItem item)
+    public void AddItem(Item item)
     {
         this.items.Add(item);
     }
 
-    public void RemoveItem(NonMagicalItem item)
+    public void RemoveItem(Item item)
     {
         this.items.Remove(item);
     }

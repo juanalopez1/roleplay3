@@ -1,7 +1,7 @@
 namespace RoleplayGame
 {
-    public class Bow : NonMagicalItem
+    public class Bow : Item
     {
-        public Bow(int defenseValue, int attackValue) : base(0, 15) { }
+        public Bow(int defenseValue, int attackValue) : base(defenseValue, attackValue) { }
     }
 }

@@ -5,38 +5,14 @@ namespace RoleplayGame
     {
         private int health = 100;
 
-        private List<NonMagicalItem> items = new List<NonMagicalItem>();
+        private List<Item> items = new List<Item>();
 
         public Dwarf(string name) : base(name)
         {
             this.AddItem(new Axe(0, 25));
-            this.AddItem(new Helmet());
+            this.AddItem(new Helmet(25, 0));
         }
 
-
-
-        public void ReceiveAttack(int power)
-        {
-            if (this.DefenseValue < power)
-            {
-                this.Health -= power - this.DefenseValue;
-            }
-        }
-
-        public void Cure()
-        {
-            this.Health = 100;
-        }
-
-        public void AddItem(IItem item)
-        {
-            this.items.Add(item);
-        }
-
-        public void RemoveItem(IItem item)
-        {
-            this.items.Remove(item);
-        }
 
 
     }

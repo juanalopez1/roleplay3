@@ -11,12 +11,12 @@ public class Enemy : ICharacter
     public int DefenseValue { get; set; }
     public int VictoryPoint { get; set; }
 
-    public void AddItem(NonMagicalItem item) { }
+    public void AddItem(Item item) { }
 
     public void Cure() { }
 
     public void ReceiveAttack(int power) { }
 
-    public void RemoveItem(NonMagicalItem item) { }
+    public void RemoveItem(Item item) { }
 
 }

@@ -3,15 +3,15 @@ namespace RoleplayGame
 {
     public class Knight : Hero
     {
-        public Knight(string name)
+        private List<Item> items = new List<Item>();
+        public Knight(string name) : base(name)
         {
             this.Name = name;
-
-            this.AddItem(new Sword());
-            this.AddItem(new Armor());
-            this.AddItem(new Shield());
+            this.AddItem(new Sword(0, 20));
+            this.AddItem(new Armor(10, 20));
+            this.AddItem(new Shield(20, 30));
         }
 
-        //public string Name { get; set; }
+
     }
 }

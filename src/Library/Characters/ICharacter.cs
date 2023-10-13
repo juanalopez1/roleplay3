@@ -11,9 +11,9 @@ namespace RoleplayGame
         int DefenseValue { get; }
         int VictoryPoint { get; }
 
-        void AddItem(NonMagicalItem item);
+        void AddItem(Item item);
 
-        void RemoveItem(NonMagicalItem item);
+        void RemoveItem(Item item);
         void Cure();
 
         void ReceiveAttack(int power);

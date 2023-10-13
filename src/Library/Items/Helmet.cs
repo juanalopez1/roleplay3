@@ -1,7 +1,7 @@
 namespace RoleplayGame
 {
-    public class Helmet : NonMagicalItem
+    public class Helmet : Item
     {
-        public Helmet(int defenseValue, int attackValue) : base(18, 0) { }
+        public Helmet(int defenseValue, int attackValue) : base(defenseValue, attackValue) { }
     }
 }

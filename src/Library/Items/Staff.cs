@@ -1,7 +1,7 @@
 namespace RoleplayGame
 {
-    public class Staff : NonMagicalItem
+    public class Staff : Item
     {
-        public Staff(int defenseValue, int attackValue) : base(100, 100) { }
+        public Staff(int defenseValue, int attackValue) : base(defenseValue, attackValue) { }
     }
 }
