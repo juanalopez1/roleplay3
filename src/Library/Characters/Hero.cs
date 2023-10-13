@@ -2,11 +2,16 @@ using System.Collections.Generic;
 
 namespace RoleplayGame;
 
-public class Hero : ICharacter, IItem
+public class Hero : ICharacter
 {
     public string Name { get; set; }
     private int health = 100;
-    private List<IItem> items = new List<IItem>();
+    private List<NonMagicalItem> items = new List<NonMagicalItem>();
+
+    public Hero(string name)
+    {
+        this.Name = name;
+    }
     public int Health
     {
         get
@@ -23,11 +28,11 @@ public class Hero : ICharacter, IItem
         get
         {
             int value = 0;
-            foreach (IItem item in this.items)
+            foreach (NonMagicalItem item in this.items)
             {
-                if (item is IAttackItem)
+                if (item.AttackValue.HasValue)
                 {
-                    value += (item as IAttackItem).AttackValue;
+                    value += item.AttackValue.Value;
                 }
             }
             return value;
@@ -38,11 +43,11 @@ public class Hero : ICharacter, IItem
         get
         {
             int value = 0;
-            foreach (IItem item in this.items)
+            foreach (NonMagicalItem item in this.items)
             {
-                if (item is IDefenseItem)
+                if (item.DefenseValue.HasValue)
                 {
-                    value += (item as IDefenseItem).DefenseValue;
+                    value += item.DefenseValue.Value;
                 }
             }
             return value;
@@ -55,12 +60,12 @@ public class Hero : ICharacter, IItem
         this.Health = 100;
     }
 
-    public void AddItem(IItem item)
+    public void AddItem(NonMagicalItem item)
     {
         this.items.Add(item);
     }
 
-    public void RemoveItem(IItem item)
+    public void RemoveItem(NonMagicalItem item)
     {
         this.items.Remove(item);
     }

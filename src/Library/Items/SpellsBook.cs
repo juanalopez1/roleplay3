@@ -2,20 +2,26 @@ using System.Collections.Generic;
 
 namespace RoleplayGame
 {
-    public class SpellsBook: IMagicalAttackItem, IMagicalDefenseItem
+    public class SpellsBook : MagicalItem // no uso el set en el attack y defense value? 
     {
+        private int attackValue = 0;
+        private int defenseValue = 0;
         private List<ISpell> spells = new List<ISpell>();
-        
+
         public int AttackValue
         {
             get
             {
-                int value = 0;
+                return this.attackValue;
+            }
+            private set
+            {
+                int upToDateValue = 0;
                 foreach (ISpell spell in this.spells)
                 {
-                    value += spell.AttackValue;
+                    upToDateValue += spell.AttackValue;
                 }
-                return value;
+                this.attackValue = upToDateValue;
             }
         }
 
@@ -23,12 +29,17 @@ namespace RoleplayGame
         {
             get
             {
-                int value = 0;
+                return this.defenseValue;
+            }
+            private set
+            {
+                int upToDateValue = 0;
                 foreach (ISpell spell in this.spells)
                 {
-                    value += spell.DefenseValue;
+                    upToDateValue += spell.DefenseValue;
                 }
-                return value;
+                this.defenseValue = upToDateValue;
+
             }
         }
 

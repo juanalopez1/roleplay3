@@ -1,13 +1,7 @@
 namespace RoleplayGame
 {
-    public class Sword: IAttackItem
+    public class Sword : NonMagicalItem
     {
-        public int AttackValue 
-        {
-            get
-            {
-                return 20;
-            } 
-        }
+        public Sword(int defenseValue, int attackValue) : base(0, 20) { }
     }
 }

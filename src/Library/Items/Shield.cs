@@ -1,13 +1,7 @@
 namespace RoleplayGame
 {
-    public class Shield: IDefenseItem
+    public class Shield : NonMagicalItem
     {
-        public int DefenseValue
-        {
-            get
-            {
-                return 14;
-            }
-        }
+        public Shield(int defenseValue, int attackValue) : base(14, 0) { }
     }
 }

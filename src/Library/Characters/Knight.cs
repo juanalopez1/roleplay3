@@ -13,6 +13,5 @@ namespace RoleplayGame
         }
 
         //public string Name { get; set; }
-
     }
 }

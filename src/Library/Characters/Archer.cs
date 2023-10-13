@@ -7,15 +7,11 @@ namespace RoleplayGame
 
         private List<IItem> items = new List<IItem>();
 
-        public Archer(string name)
+        public Archer(string name) : base(name)
         {
-            this.Name = name;
-
             this.AddItem(new Bow());
             this.AddItem(new Helmet());
         }
-
-        public string Name { get; set; }
 
         public int AttackValue
         {
