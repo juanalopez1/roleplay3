@@ -9,6 +9,7 @@ namespace RoleplayGame
         int AttackValue { get; }
 
         int DefenseValue { get; }
+        int VictoryPoint { get; }
 
         void AddItem(IItem item);
 

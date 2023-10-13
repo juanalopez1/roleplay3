@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Archer: ICharacter
+    public class Archer : Hero
     {
         private int health = 100;
 
@@ -10,13 +10,13 @@ namespace RoleplayGame
         public Archer(string name)
         {
             this.Name = name;
-            
+
             this.AddItem(new Bow());
             this.AddItem(new Helmet());
         }
 
         public string Name { get; set; }
-        
+
         public int AttackValue
         {
             get

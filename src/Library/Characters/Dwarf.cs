@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Dwarf: ICharacter
+    public class Dwarf : Hero
     {
         private int health = 100;
 
@@ -10,13 +10,13 @@ namespace RoleplayGame
         public Dwarf(string name)
         {
             this.Name = name;
-            
+
             this.AddItem(new Axe());
             this.AddItem(new Helmet());
         }
 
         public string Name { get; set; }
-        
+
         public int AttackValue
         {
             get
@@ -83,5 +83,7 @@ namespace RoleplayGame
         {
             this.items.Remove(item);
         }
+
+
     }
 }
