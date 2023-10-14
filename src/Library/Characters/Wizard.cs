@@ -21,7 +21,7 @@ namespace RoleplayGame
                 int value = 0;
                 foreach (MagicalItem item in this.magicalItems)
                 {
-                    value += item.AttackValue;
+                    value += item.AttackValue.Value;
 
                 }
                 return value;
@@ -34,7 +34,7 @@ namespace RoleplayGame
             {
                 int value = 0;
                 foreach (MagicalItem item in magicalItems)
-                    value += item.DefenseValue;
+                    value += item.DefenseValue.Value;
 
                 return value;
             }

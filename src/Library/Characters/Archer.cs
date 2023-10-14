@@ -12,7 +12,5 @@ namespace RoleplayGame
             this.AddItem(new Bow(0, 25));
             this.AddItem(new Helmet(50, 0));
         }
-
-
     }
 }

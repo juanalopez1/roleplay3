@@ -1,19 +1,18 @@
 namespace RoleplayGame
 {
-    public interface ICharacter
+    public interface IMagicalCharacter
     {
         string Name { get; set; }
 
         int Health { get; }
 
         int AttackValue { get; }
-
         int DefenseValue { get; }
         int VictoryPoint { get; }
 
-        void AddItem(Item item);
+        void AddItem(MagicalItem item);
 
-        void RemoveItem(Item item);
+        void RemoveItem(MagicalItem item);
         void Cure();
 
         void ReceiveAttack(int power);

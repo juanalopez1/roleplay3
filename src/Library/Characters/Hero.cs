@@ -12,6 +12,8 @@ public class Hero : ICharacter
     {
         this.Name = name;
     }
+
+    // IMagicalCharacter wizard = new Hero()
     public int Health
     {
         get
@@ -23,51 +25,11 @@ public class Hero : ICharacter
             this.health = value < 0 ? 0 : value;
         }
     }
-    public int AttackValue
-    {
-        get
-        {
-            int value = 0;
-            foreach (Item item in this.items)
-            {
-                if (item.AttackValue.HasValue)
-                {
-                    value += item.AttackValue.Value;
-                }
-            }
-            return value;
-        }
-    }
-    public int DefenseValue
-    {
-        get
-        {
-            int value = 0;
-            foreach (Item item in this.items)
-            {
-                if (item.DefenseValue.HasValue)
-                {
-                    value += item.DefenseValue.Value;
-                }
-            }
-            return value;
-        }
-    }
 
     public int VictoryPoint { get; set; }
     public void Cure()
     {
         this.Health = 100;
-    }
-
-    public void AddItem(Item item)
-    {
-        this.items.Add(item);
-    }
-
-    public void RemoveItem(Item item)
-    {
-        this.items.Remove(item);
     }
 
     public void ReceiveAttack(int power)
@@ -81,5 +43,14 @@ public class Hero : ICharacter
     {
         VictoryPoint += enemy.VictoryPoint;
         enemy.VictoryPoint = 0;
+    }
+    public void AddItem(Item item)
+    {
+        this.items.Add(item);
+    }
+
+    public void RemoveItem(Item item)
+    {
+        this.items.Remove(item);
     }
 }
