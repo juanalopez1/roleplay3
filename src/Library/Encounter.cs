@@ -2,73 +2,107 @@ using System.Collections.Generic;
 
 namespace RoleplayGame;
 
-public abstract class Encounter
+public class Encounter
 {
-    public List<Hero> heros = new List<Hero>();
+    public Encounter()
+    {
+        this.Heros = new List<Hero>();
+        this.Enemies = new List<Enemy>();
+    }
+    public List<Hero> Heros { get; }
 
-    public List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> Enemies { get; }
     public void DoEncounter()
     {
-        while (heros.Count != 0 || enemies.Count != 0)
+        while (Heros.Count != 0 || Enemies.Count != 0)
         {
-            if (heros.Count == 1)
-                foreach (Enemy enemy in enemies) // primer ataque de enemigos si hay un solo heroe
+            if (Heros.Count == 1)
+                foreach (Enemy enemy in Enemies) // primer ataque de enemigos si hay un solo heroe
                 {
-                    heros[0].Health -= enemy.AttackValue;
-                    enemy.Health -= heros[0].AttackValue;
+                    Heros[0].Health -= enemy.AttackValue;
 
-                    if (enemy.Health == 0)
-                        heros[0].ReceiveVP(enemy);
+                    if (Heros[0].Health > 0)
+                    {
+                        enemy.Health -= Heros[0].AttackValue;
 
-                    if (heros[0].VictoryPoint == 5)
-                        heros[0].Cure();
+                        EnemysDeath(enemy, Heros[0]);
+                        CureHero(Heros[0]);
+                    }
+                    if (Heros[0].Health < 0)
+                        Heros.Remove(Heros[0]);
 
-                    if (heros[0].Health < 0)
-                        heros.Remove(heros[0]);
-
-                    if (enemy.Health < 0)
-                        enemies.Remove(enemy);
                 }
-            else if (heros.Count > 1 && enemies.Count > 1  // 
-                && heros.Count == enemies.Count)
+
+            else if (Heros.Count > 1 && Enemies.Count > 1  // uno para cada uno (1 vs 1)
+                && Heros.Count == Enemies.Count)
             {
-                foreach (Enemy enemy in enemies)
+                foreach (Enemy enemy in Enemies)
                 {
-                    foreach (Hero hero in heros)
+                    foreach (Hero hero in Heros)
                     {
                         hero.Health -= enemy.AttackValue;
-                        enemy.Health -= hero.AttackValue;
-                        if (enemy.Health == 0)
-                            heros[0].ReceiveVP(enemy);
-                        if (heros[0].VictoryPoint == 5)
-                            heros[0].Cure();
+
+                        if (hero.Health > 0)
+                        {
+                            enemy.Health -= hero.AttackValue;
+                            EnemysDeath(enemy, hero);
+                            CureHero(hero);
+                        }
+                        if (hero.Health < 0)
+                            Heros.Remove(hero);
                     }
                 }
             }
-            else if (heros.Count < enemies.Count)
+
+            else if (Heros.Count < Enemies.Count)   // menos heroes que enemigos
             {
-                for (int i = 0; i < enemies.Count; i++)
+                for (int i = 0; i < Enemies.Count; i++)
                 {
-                    foreach (Enemy enemy in enemies)
+                    foreach (Enemy enemy in Enemies)
                     {
-                        foreach (Hero hero in heros)
+                        foreach (Hero hero in Heros)
                         {
                             hero.Health -= enemy.AttackValue;
+
+                            if (hero.Health > 0)
+                            {
+                                enemy.Health -= hero.AttackValue;
+                                EnemysDeath(enemy, hero);
+                                CureHero(hero);
+                            }
+                            if (hero.Health < 0)
+                                Heros.Remove(hero);
                         }
                     }
                 }
             }
 
-
-
-
         }
     }
 
-    private void EnemyDeath(Enemy enemy, Hero hero)
+    public void AddHero(Hero hero)
+    {
+        Heros.Add(hero);
+    }
+
+    public void AddEnemy(Enemy enemy)
+    {
+        Enemies.Add(enemy);
+    }
+
+    private void EnemysDeath(Enemy enemy, Hero hero)
     {
         if (enemy.Health == 0)
+        {
             hero.ReceiveVP(enemy);
+            Enemies.Remove(enemy);
+        }
+
+    }
+    private void CureHero(Hero hero)
+    {
+        if (hero.VictoryPoint == 5)
+            hero.Cure();
     }
 
 }

@@ -7,7 +7,7 @@ namespace RoleplayGame
     {
         string Name { get; set; }
         private int health = 100;
-        int VictoryPoint { get; set; }
+        public int VictoryPoint { get; set; }
         private List<Item> items = new List<Item>();
 
         public Character(string name)
