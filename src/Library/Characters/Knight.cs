@@ -8,9 +8,9 @@ namespace RoleplayGame
         public Knight(string name) : base(name)
         {
             this.Name = name;
-            this.AddItem(new Item("Sword", 0, 20));
-            this.AddItem(new Item("Armor", 10, 20));
-            this.AddItem(new Item("Shield", 20, 30));
+            this.AddItem("Sword", 0, 20);
+            this.AddItem("Armor", 10, 20);
+            this.AddItem("Shield", 20, 30);
         }
 
 

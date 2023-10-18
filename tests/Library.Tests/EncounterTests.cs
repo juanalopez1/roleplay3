@@ -6,11 +6,26 @@ namespace Library.Tests;
 public class EncounterTests
 {
     [TestCase]
-    public void MyEncounter()
+    public void MyEncounter1vs1()
     {
-        Assert.Pass();
+        Hero myHero = new Hero("juana");
+        myHero.AddItem("baston", 0, 50);
+        Enemy myEnemy = new Enemy("lucia");
+        myHero.AddItem("baston", 0, 20);
+
+        Encounter newEncounter = new Encounter();
+
+        newEncounter.AddHero(myHero);
+        newEncounter.AddEnemy(myEnemy);
+
+        newEncounter.DoEncounter();
+
+        int expected = 0;
+        Assert.That(expected, Is.EqualTo(newEncounter.Enemies.Count));
+        Assert.That(expected, Is.EqualTo(newEncounter.Heros.Count));
     }
 
+    [Test]
     public void CorrectAdd()
     {
         Hero myHero = new Hero("juana");

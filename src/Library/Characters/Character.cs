@@ -64,9 +64,9 @@ namespace RoleplayGame
             }
         }
 
-        public void AddItem(Item item)
+        public void AddItem(string name, int defenseValue, int attackValue)
         {
-            this.items.Add(item);
+            this.items.Add(new Item(name, defenseValue, attackValue));
         }
 
         public void RemoveItem(Item item)
@@ -90,12 +90,6 @@ namespace RoleplayGame
                 this.Health -= power - this.DefenseValue;
             }
 
-        }
-
-        public void ReceiveVP(Character character)
-        {
-            VictoryPoint += character.VictoryPoint;
-            character.VictoryPoint = 0;
         }
     }
 }

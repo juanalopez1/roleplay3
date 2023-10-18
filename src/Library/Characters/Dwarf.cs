@@ -8,8 +8,8 @@ namespace RoleplayGame
 
         public Dwarf(string name) : base(name)
         {
-            this.AddItem(new Item("Axe", 0, 25));
-            this.AddItem(new Item("Helmet", 25, 0));
+            this.AddItem("Axe", 0, 25);
+            this.AddItem("Helmet", 25, 0);
         }
     }
 }

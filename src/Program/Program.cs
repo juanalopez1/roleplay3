@@ -7,7 +7,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            SpellsBook book = new SpellsBook("spellbook", 0, 0, 0);
+            SpellsBook book = new SpellsBook("spellbook", 20, 20, 20);
             book.AddSpell(new Spell(50, 50));
             book.AddSpell(new Spell(30, 20));
 
@@ -26,6 +26,19 @@ namespace Program
             gimli.Cure();
 
             Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {gimli.Health}");
+
+            Hero myHero = new Hero("juana");
+            myHero.AddItem("baston", 0, 50);
+            Enemy myEnemy = new Enemy("lucia");
+            myHero.AddItem("baston", 0, 20);
+
+            Encounter newEncounter = new Encounter();
+
+            newEncounter.AddHero(myHero);
+            newEncounter.AddEnemy(myEnemy);
+
+            newEncounter.DoEncounter();
+
         }
     }
 }

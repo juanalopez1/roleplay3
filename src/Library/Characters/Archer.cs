@@ -8,8 +8,8 @@ namespace RoleplayGame
 
         public Archer(string name) : base(name)
         {
-            this.AddItem(new Item("Bow", 0, 25));
-            this.AddItem(new Item("Helmet", 50, 0));
+            this.AddItem("Bow", 0, 25);
+            this.AddItem("Helmet", 50, 0);
         }
     }
 }
