@@ -1,14 +1,15 @@
-using System.Collections.Generic;
-
 namespace RoleplayGame
 {
+    using System.Collections.Generic;
+
     public class SpellsBook : MagicalItem
     {
         private int attackValue = 0;
         private int defenseValue = 0;
-        private List<ISpell> spells = new List<ISpell>();
+        private List<Spell> spells = new List<Spell>();
+        public SpellsBook(string Name, int AttackValue, int DefenseValue, int Power) : base(Name, AttackValue, DefenseValue, Power) { }
 
-        public int AttackValue
+        public new int AttackValue
         {
             get
             {
@@ -17,15 +18,15 @@ namespace RoleplayGame
             private set
             {
                 int upToDateValue = 0;
-                foreach (ISpell spell in this.spells)
+                foreach (Spell spell in this.spells)
                 {
                     upToDateValue += spell.AttackValue;
                 }
-                this.attackValue = upToDateValue;
+                this.attackValue = upToDateValue + Power;
             }
         }
 
-        public int DefenseValue
+        public new int DefenseValue
         {
             get
             {
@@ -34,7 +35,7 @@ namespace RoleplayGame
             private set
             {
                 int upToDateValue = 0;
-                foreach (ISpell spell in this.spells)
+                foreach (Spell spell in this.spells)
                 {
                     upToDateValue += spell.DefenseValue;
                 }
@@ -43,12 +44,12 @@ namespace RoleplayGame
             }
         }
 
-        public void AddSpell(ISpell spell)
+        public void AddSpell(Spell spell)
         {
             this.spells.Add(spell);
         }
 
-        public void RemoveSpell(ISpell spell)
+        public void RemoveSpell(Spell spell)
         {
             this.spells.Remove(spell);
         }

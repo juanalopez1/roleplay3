@@ -1,7 +1,8 @@
-using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Wizard : IMagicCharacter
+    using System.Collections.Generic;
+
+    public class Wizard : IMagicalCharacter
     {
         private int health = 100;
 
@@ -14,6 +15,7 @@ namespace RoleplayGame
 
         public string Name { get; set; }
 
+        /// <AttackValue>AttackValue</AttackValue>
         public int AttackValue
         {
             get

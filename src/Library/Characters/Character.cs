@@ -1,15 +1,21 @@
-using System.Collections.Generic;
-using System.Data;
-
 namespace RoleplayGame
 {
+    using System.Collections.Generic;
+    using System.Data;
+
     public class Character
     {
-        string Name { get; set; }
+        private string Name { get; set; }
+
         private int health = 100;
+
         public int VictoryPoint { get; set; }
         private List<Item> items = new List<Item>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Character"/> class.
+        /// </summary>
+        /// <param name="name">asdasdsa.</param>
         public Character(string name)
         {
             this.Name = name;

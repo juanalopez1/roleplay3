@@ -7,9 +7,9 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            SpellsBook book = new SpellsBook();
-            book.AddSpell(new SpellOne());
-            book.AddSpell(new SpellOne());
+            SpellsBook book = new SpellsBook("spellbook", 0, 0, 0);
+            book.AddSpell(new Spell(50, 50));
+            book.AddSpell(new Spell(30, 20));
 
             Wizard gandalf = new Wizard("Gandalf");
             gandalf.AddItem(book);

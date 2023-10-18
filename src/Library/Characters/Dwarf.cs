@@ -1,19 +1,15 @@
-using System.Collections.Generic;
 namespace RoleplayGame
 {
+    using System.Collections.Generic;
+
     public class Dwarf : Hero
     {
-        private int health = 100;
-
         private List<Item> items = new List<Item>();
 
         public Dwarf(string name) : base(name)
         {
-            this.AddItem(new Axe(0, 25));
-            this.AddItem(new Helmet(25, 0));
+            this.AddItem(new Item("Axe", 0, 25));
+            this.AddItem(new Item("Helmet", 25, 0));
         }
-
-
-
     }
 }
