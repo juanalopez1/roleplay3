@@ -2,7 +2,7 @@ namespace RoleplayGame
 {
     using System.Collections.Generic;
 
-    public class Wizard : IMagicalCharacter
+    public class Wizard : MagicalEnemy, IMagicalCharacter
     {
         private int health = 100;
 
@@ -77,8 +77,5 @@ namespace RoleplayGame
         {
             this.magicalItems.Remove(item);
         }
-
-        public int VictoryPoint { get; set; }
-
     }
 }

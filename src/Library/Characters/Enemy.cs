@@ -1,13 +1,8 @@
-using System.Collections.Generic;
-
-namespace RoleplayGame;
-
-public class Enemy : Character
+namespace RoleplayGame
 {
-    public Enemy(string name) : base(name) { }
-    public string Name { get; set; }
-    private List<Item> items = new List<Item>();
-
-
-
+    public class Enemy : Character
+    {
+        public int VictoryPoint { get; set; }
+        public Enemy(string Name) : base(Name) { }
+    }
 }

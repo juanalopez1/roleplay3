@@ -9,7 +9,6 @@ namespace RoleplayGame
 
         private int health = 100;
 
-        public int VictoryPoint { get; set; }
         private List<Item> items = new List<Item>();
 
         /// <summary>

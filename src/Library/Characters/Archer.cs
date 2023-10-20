@@ -1,3 +1,5 @@
+using RoleplayGame;
+
 namespace RoleplayGame
 {
     using System.Collections.Generic;
@@ -13,3 +15,16 @@ namespace RoleplayGame
         }
     }
 }
+
+
+/*
+
+INonMagicalCharacter
+IMagicalCharacter
+Enemy 
+Hero
+
+
+
+
+*/

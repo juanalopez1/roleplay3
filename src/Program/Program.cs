@@ -1,8 +1,7 @@
-﻿using System;
-using RoleplayGame;
-
-namespace Program
+﻿namespace Program
 {
+    using System;
+    using RoleplayGame;
     class Program
     {
         static void Main(string[] args)
