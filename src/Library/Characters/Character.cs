@@ -79,6 +79,9 @@ namespace RoleplayGame
 
         public void Attack(Character character)
         {
+            int lifepower = character.health + character.DefenseValue;
+            if (AttackValue > lifepower)
+                character.health = 0;
 
         }
 
