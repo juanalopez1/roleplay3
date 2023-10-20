@@ -16,7 +16,7 @@ namespace RoleplayGame
         public List<Enemy> Enemies { get; }
         public void DoEncounter()
         {
-            while (Heros.Count > 0 || Enemies.Count > 0)
+            while (Enemies.Count != 0 && Heros.Count != 0)
             {
                 if (Heros.Count == 1 && Enemies.Count > 1)
                     // primer ataque de enemigos si hay un solo heroe
