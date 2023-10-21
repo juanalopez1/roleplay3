@@ -14,7 +14,6 @@ public class HeroTests
         int expected = 0;
 
         dwarf.Attack(titan);
-        dwarf.ReceiveVP(titan);
 
         Assert.That(expected, Is.EqualTo(titan.VictoryPoint));
     }

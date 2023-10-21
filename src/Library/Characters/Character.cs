@@ -2,6 +2,7 @@ namespace RoleplayGame
 {
     using System.Collections.Generic;
     using System.Data;
+    using Microsoft.VisualBasic;
 
     public class Character
     {
@@ -75,14 +76,6 @@ namespace RoleplayGame
         public void Cure()
         {
             this.Health = 100;
-        }
-
-        public void Attack(Character character)
-        {
-            int lifepower = character.health + character.DefenseValue;
-            if (AttackValue > lifepower)
-                character.health = 0;
-
         }
 
         public void ReceiveAttack(int power)
